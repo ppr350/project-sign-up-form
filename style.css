@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#section-logo {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#project-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#image-info {
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+    text-align: center;
+}
