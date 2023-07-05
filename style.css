@@ -6,16 +6,51 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: open-sans;
+    src: url(opensans-variablefont_wdthwght-webfont.woff2),
+         url(opensans-variablefont_wdthwght-webfont.woff)
+         url(opensans-italic-variablefont_wdthwght-webfont.woff2),
+         url(opensans-italic-variablefont_wdthwght-webfont.woff),
+;
+}
+
+body {
+    font-family: 'open-sans', sans-serif;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
 #section-logo {
+    max-width: 100%;
     position: relative;
     text-align: center;
     color: white;
+    flex-grow: 1;
+}
+
+#background-image-ft-carly {
+    max-width: 100%;
+    z-index: -1;
+}
+
+#project-name-blackbar {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    max-width: 100%;
+    background: black;
+    opacity: 0.6;
+    text-align: center;
 }
 
 #project-name {
+    /* font-size: clamp(2rem, 2vw, 10rem); */
+    font-size: 5vw;
     position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -23,5 +58,10 @@
     position: absolute;
     bottom: 1em;
     width: 100%;
-    text-align: center;
+    font-size: 4vw;
+    /*text-align: center;*/
+}
+
+#section-form {
+    flex-grow: 3;
 }
