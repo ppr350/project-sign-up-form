@@ -21,40 +21,54 @@
 
         <div id="section-form">
 
-            <h2 class="message message-main">This is not a real Carly Rae Jepsen fan club! It is just an imaginary club I create because why not? Sign up now to join the non-existing club.</h2>
-            <h2 class="message message-secondary">Join us now</h2>
+            <h2 class="message message-main">This is not a real Carly Rae Jepsen fan club! It is just an imaginary club I create because why not? Sign up <em>now</em> to join the non-existing club.</h2>
+            <h2 class="message message-secondary">Join us <em>now</em>.</h2>
 
             <fieldset>
                 <form action="" method="get">
-                    <p>Let's do this!</p>
+                    <h3>Let's do this!</h3>
 
-                    <label for="fname">FIRST NAME</label>
-                    <input type="text" id="fname" name="fname" placeholder="" required />
-                    
-                    <label for="lname">LAST NAME</label>
-                    <input type="text" id="lname" name="lname" placeholder="" />
+                    <div class="inputs-container">
+                        <p class="inputs">
+                            <label for="fname">FIRST NAME</label>
+                            <input type="text" id="fname" name="fname" placeholder="" required />
+                        </p>
+                        
+                        <p class="inputs">
+                            <label for="lname">LAST NAME</label>
+                            <input type="text" id="lname" name="lname" placeholder="" />
+                        </p>
 
-                    <label for="email">EMAIL</label>
-                    <input type="email" id="email" name="email" required />
+                        <p class="inputs">
+                            <label for="email">EMAIL</label>
+                            <input type="email" id="email" name="email" required />
+                        </p>
 
-                    <label for="tel">PHONE NUMBER</label>
-                    <input type="number" id="tel" name="tel" />
+                        <p class="inputs">
+                            <label for="tel">PHONE NUMBER</label>
+                            <input type="number" id="tel" name="tel" />
+                        </p>
 
-                    <label for="pw">PASSWORD</label>
-                    <input type="password" id="pw" name="pw" />
+                        <p class="inputs">
+                            <label for="pw">PASSWORD</label>
+                            <input type="password" id="pw" name="pw" />
+                        </p>
 
-                    <label for="confirm-pw">CONFIRM PASSWORD</label>
-                    <input type="password" id="confirm-pw" name="confirm-pw" />
+                        <p class="inputs">
+                            <label for="confirm-pw">CONFIRM PASSWORD</label>
+                            <input type="password" id="confirm-pw" name="confirm-pw" />
+                        </p>
+                    </div>
 
                 </form>
-
-                <button type="submit">Create Account</button>
-
-                <p>Already have an account</p>
-                <a href="url">Log in</a>
-
             </fieldset>
 
+            <div class="join">
+                <button class="button" type="submit">Create Account</button>
+
+                <p>Already have an account <a href="url">Log in</a></p>
+                
+            </div>
         </div>
 
     </div>
