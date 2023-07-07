@@ -10,7 +10,7 @@
     --fontsize--xlarge: clamp(2.6rem, 1vw + 0.9rem, 1.5rem);
     --fontsize--large: clamp(0.6rem, 1vw + 0.6rem, 1.3rem);
     --fontsize--medium: clamp(0.5rem, 1vw + 0.5rem, 1.2rem);
-    --fontsize--small: clamp(0.35rem, 1vw + 0.3rem, 1rem);
+    --fontsize--small: clamp(0.35rem, 1vw + 0.25rem, 1rem);
 }
 
 @font-face {
@@ -95,7 +95,7 @@ body {
 
 .message-main {
     font-size: var(--fontsize--large);
-    text-wrap: balance;
+    /* text-wrap: balance; */
     border: 1px solid green;
 }
 
@@ -108,6 +108,7 @@ fieldset {
     /* margin: 2rem 0 2rem 0; */
     background: white;
     border: 1px solid lightblue;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 form {
@@ -118,7 +119,7 @@ form {
 form > h3 {
     font-size: var(--fontsize--medium);
     border: 1px solid blue;
-    margin-bottom: 2rem;
+    margin-bottom: min(2vh, 2rem);
 }
 
 .inputs-container {
@@ -134,10 +135,10 @@ form > h3 {
     flex-direction: column;
 }
 
-.join {
+.join > * {
     /* margin: 2rem 0 0 2rem; */
     border: 1px solid orange;
-
+    font-size: var(--fontsize--small);
 }
 
 .button {
@@ -145,7 +146,8 @@ form > h3 {
     padding: 0.7rem 1.5em 0.7rem 1.5em;
     border-radius: 1em;
     cursor: pointer;
-    margin-bottom: 2rem;
+    margin-bottom: min(3vh, 5rem);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 a {
