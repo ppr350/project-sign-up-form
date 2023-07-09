@@ -105,21 +105,32 @@ body {
 }
 
 fieldset {
-    /* margin: 2rem 0 2rem 0; */
+    /* position: relative;
+    background: white;
+    border: 1px solid lightblue;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
+}
+
+form {
+    position: relative;
     background: white;
     border: 1px solid lightblue;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-form {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
-}
-
-form > h3 {
+/* form > h3 {
     font-size: var(--fontsize--medium);
     border: 1px solid blue;
     margin-bottom: min(2vh, 2rem);
+} */
+
+legend {
+    position: absolute;
+    top: 1em;
+    padding-bottom: min(3vh, 5rem);
+    font-size: var(--fontsize--medium);
+    border: 1px solid blue;
+
 }
 
 .inputs-container {
@@ -133,6 +144,22 @@ form > h3 {
 .inputs {
     display: flex;
     flex-direction: column;
+}
+
+/* input:focus {
+    border-color: rgb(135, 190, 51);
+} */
+
+input:focus {
+    outline: 0;
+}
+
+input:focus:invalid {
+    border-color: red;
+}
+
+input:focus:valid {
+    border-color: rgb(135, 190, 51);;
 }
 
 .join > * {
