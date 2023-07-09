@@ -118,15 +118,9 @@ form {
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-/* form > h3 {
-    font-size: var(--fontsize--medium);
-    border: 1px solid blue;
-    margin-bottom: min(2vh, 2rem);
-} */
-
 legend {
     position: absolute;
-    top: 1em;
+    top: 0.1em;
     padding-bottom: min(3vh, 5rem);
     font-size: var(--fontsize--medium);
     border: 1px solid blue;
@@ -146,16 +140,12 @@ legend {
     flex-direction: column;
 }
 
-/* input:focus {
-    border-color: rgb(135, 190, 51);
-} */
-
 input:focus {
     outline: 0;
 }
 
 input:focus:invalid {
-    border-color: red;
+    border-color: rgb(255, 36, 36);
 }
 
 input:focus:valid {
@@ -163,7 +153,6 @@ input:focus:valid {
 }
 
 .join > * {
-    /* margin: 2rem 0 0 2rem; */
     border: 1px solid orange;
     font-size: var(--fontsize--small);
 }

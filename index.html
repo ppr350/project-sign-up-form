@@ -27,9 +27,6 @@
             <form action="" method="get" name="sign-up-form">
                 <fieldset>
                     <legend>Let's do this!</legend>
-                    <!-- <form action="" method="get" name="sign-up-form"> -->
-
-                    <!-- <h3>Let's do this!</h3> -->
 
                     <div class="inputs-container">
                         <p class="inputs">
@@ -67,7 +64,12 @@
 
                         <p class="inputs">
                             <label for="tel">PHONE NUMBER</label>
-                            <input type="tel" id="tel" name="tel" />
+                            <input
+                                type="tel"
+                                id="tel"
+                                name="tel"
+                                minlength="6"
+                                maxlength="16" />
                         </p>
 
                         <p class="inputs">
@@ -77,6 +79,8 @@
                                 id="pw"
                                 name="pw"
                                 autocomplete="off"
+                                minlength="8"
+                                maxlength="40"
                                 required />
                         </p>
 
@@ -87,6 +91,8 @@
                                 id="confirm-pw"
                                 name="confirm-pw"
                                 autocomplete="off"
+                                minlength="8"
+                                maxlength="40"
                                 required />
                         </p>
                     </div>
