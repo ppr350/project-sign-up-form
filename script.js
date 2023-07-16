@@ -1,58 +1,24 @@
-const email = document.getElementById("email");
-email.addEventListener("input", (e) => {
-    if (email.validity.typeMismatch) {
-        email.setCustomValidity("Please enter a valid email address");
-    } else {
-        email.setCustomValidity("");
-    }
-})
+function validateFirstName() {
+    const firstNameField = document.getElementById("fname");
+    firstNameField.nodeValidate = true;
+    firstNameField.setCustomValidity("")
+    firstNameField.checkValidity();
+    console.log(firstNameField.checkValidity());
 
-const fname = document.getElementById("fname");
-fname.addEventListener("input", (e) => {
-    if (fname.validity.typeMismatch) {
-        fname.setCustomValidity("Please enter your first name");
-    } else {
-        fname.setCustomValidity("");
-    }
-})
-
-const pw = document.getElementById("pw");
-pw.addEventListener("input", (e) => {
-    if (pw.validity.typeMismatch) {
-        if (pw.innerText.length < 9) {
-            pw.setCustomValidity("Minimum 8 characters");
-        } else if (pw.innerText.length > 40) {
-            pw.setCustomValidity("Maximum 40 characters");
-        } else {
-            pw.setCustomValidity("");
+    firstNameField.addEventListener("input", (event) => {
+        if (firstNameField.validity.tooShort) {
+            firstNameField.setCustomValidity("Name too short")
+        } if (firstNameField.validity.tooLong) {
+            firstNameField.setCustomValidity("Name too long")
         }
-    }
-})
-
-const confirmPw = document.getElementById("confirm-pw");
-confirmPw.addEventListener("input", (e) => {
-    if (confirmPw.innerText != pw.innerText) {
-        confirmPw.setCustomValidity("Passwords do not match");
-        pw.setCustomValidity("Passwords do not match");
-    } else {
-        confirmPw.setCustomValidity("");
-    }
-})
+    })
+}
 
 document.querySelector("button").addEventListener("click", buttonForValidation);
 
 function buttonForValidation() {
     console.log("The button is pressed")
-    getFName();
+    validateFirstName()
 }
 
-function getFName() {
-    let fName = document.querySelector("#fname").innerText;
-    console.log(fName);
-}
-
-
-function confirmPassword() {
-
-}
 
