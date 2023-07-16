@@ -152,6 +152,12 @@ input:focus:valid {
     border-color: rgb(135, 190, 51);;
 }
 
+/* from CSS Tricks */
+input:not(:focus):invalid {
+    border-color: purple;
+    background-color: bisque;
+}
+
 .join > * {
     border: 1px solid orange;
     font-size: var(--fontsize--small);
