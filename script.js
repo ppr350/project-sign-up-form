@@ -1,24 +1,73 @@
-function validateFirstName() {
-    const firstNameField = document.getElementById("fname");
-    firstNameField.nodeValidate = true;
-    firstNameField.setCustomValidity("")
-    firstNameField.checkValidity();
-    console.log(firstNameField.checkValidity());
+// function validateFirstName() {
+//     const firstNameField = document.getElementById("fname");
+//     // firstNameField.nodeValidate = true;
+//     firstNameField.setCustomValidity("")
+//     if (firstNameField.checkValidity()) {
+//         console.log("first name field entry is valid");
+//         firstNameField.setCustomValidity("first name field entry is valid")
+//     } else {
+//         console.log("fist name field entry is invalid");
+//         // console.log("Please enter between 2 and 20 characters");
+//         // firstNameField.reportValidity();
+//         const errorMessage = firstNameField.validateMessage
 
-    firstNameField.addEventListener("input", (event) => {
-        if (firstNameField.validity.tooShort) {
-            firstNameField.setCustomValidity("Name too short")
-        } if (firstNameField.validity.tooLong) {
-            firstNameField.setCustomValidity("Name too long")
-        }
-    })
+        
+//         // firstNameField.setAttribute("aria-invalid", !isValid);
+//     }
+// }
+
+// const fName = document.querySelector("#fname");
+// fName.addEventListener('change', (e) => {
+//     const isInvalid = !e.target.checkValidity();
+//     const fNameError = document.querySelector("#fname-error");
+//     e.target.setAttribute('aria-invalid', isInvalid);
+//     if (isInvalid) {
+//         const errorMessage = e.target.validationMessage;
+//         fNameError.textContent = errorMessage;
+//     }
+// })
+
+const inputs = document.querySelectorAll(".inputs")
+inputs.addEventListener('change', (e) => {
+    const wasValidated = e.target.getAttribute('aria-invalid') === 'true';
+    if (wasValidated) {
+        return;
+    }
+    const errorMessage = e.target.validationMessage;
+    const errorElement = document.querySelector('span');
+    e.target.setAttribute('aria-invalid', !!errorMessage);
+    if (errorMessage) {
+        errorElement.textContent = errorMessage;
+        e.target.focus();
+    }
+})
+
+function validateEmail() {
+    const emailField = document.getElementById("email");
+    emailField.nodeValidate = true;
+    if (emailField.checkValidity()) {
+        console.log("email field entry is valid");
+    } else {
+        console.log("email field entry is invalid");
+        emailField.reportValidity();
+    }
 }
 
-document.querySelector("button").addEventListener("click", buttonForValidation);
+// document.querySelector("button").addEventListener("click", buttonForValidation);
 
-function buttonForValidation() {
-    console.log("The button is pressed")
-    validateFirstName()
-}
+// function buttonForValidation() {
+//     console.log("The button is pressed")
+//     validateFirstName()
+//     validateEmail()
+// }
+
+
+// const nameInput = document.querySelector("#fname");
+// nameInput.addEventListener('change', (e) => {
+//     const isValid = e.target.checkValidity();
+//     console.log(isValid);
+//     e.target.setAttribute('Aria-invalid', !isValid);
+// })
+
 
 
