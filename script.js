@@ -16,42 +16,56 @@
 //     }
 // }
 
-// const fName = document.querySelector("#fname");
-// fName.addEventListener('change', (e) => {
-//     const isInvalid = !e.target.checkValidity();
-//     const fNameError = document.querySelector("#fname-error");
-//     e.target.setAttribute('aria-invalid', isInvalid);
-//     if (isInvalid) {
-//         const errorMessage = e.target.validationMessage;
-//         fNameError.textContent = errorMessage;
-//     }
-// })
-
-const inputs = document.querySelectorAll(".inputs")
-inputs.addEventListener('change', (e) => {
-    const wasValidated = e.target.getAttribute('aria-invalid') === 'true';
-    if (wasValidated) {
-        return;
-    }
-    const errorMessage = e.target.validationMessage;
-    const errorElement = document.querySelector('span');
-    e.target.setAttribute('aria-invalid', !!errorMessage);
-    if (errorMessage) {
-        errorElement.textContent = errorMessage;
-        e.target.focus();
+const fName = document.querySelector("#fname");
+const fNameError = document.querySelector("#fname-error");
+fName.addEventListener('change', (e) => {
+    const isInvalid = !e.target.checkValidity();
+    e.target.setAttribute('aria-invalid', isInvalid);
+    if (isInvalid) {
+        const errorMessage = e.target.validationMessage;
+        fNameError.textContent = errorMessage;
     }
 })
 
-function validateEmail() {
-    const emailField = document.getElementById("email");
-    emailField.nodeValidate = true;
-    if (emailField.checkValidity()) {
-        console.log("email field entry is valid");
-    } else {
-        console.log("email field entry is invalid");
-        emailField.reportValidity();
+fName.addEventListener("input", (e) => {
+    if(fNameError.textContent) {
+        e.target.removeAttribute('aria-invalid');
+        fNameError.textContent = '';
     }
+})
+
+const allInputs = document.querySelectorAll("input");
+const allInputsError = document.querySelectorAll
+for (i = 0; i < allInputs.length; i++) {
+    allInputs.forEach(element => console.log(element));
+
 }
+
+// const input = document.querySelectorAll("input")
+// input.addEventListener('change', (e) => {
+//     const wasValidated = e.target.getAttribute('aria-invalid') === 'true';
+//     if (wasValidated) {
+//         return;
+//     }
+//     const errorMessage = e.target.validationMessage;
+//     const errorElement = document.querySelector('span');
+//     e.target.setAttribute('aria-invalid', !!errorMessage);
+//     if (errorMessage) {
+//         errorElement.textContent = errorMessage;
+//         e.target.focus();
+//     }
+// })
+
+// function validateEmail() {
+//     const emailField = document.getElementById("email");
+//     emailField.nodeValidate = true;
+//     if (emailField.checkValidity()) {
+//         console.log("email field entry is valid");
+//     } else {
+//         console.log("email field entry is invalid");
+//         emailField.reportValidity();
+//     }
+// }
 
 // document.querySelector("button").addEventListener("click", buttonForValidation);
 
