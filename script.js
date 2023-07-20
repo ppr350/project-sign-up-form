@@ -16,30 +16,50 @@
 //     }
 // }
 
-const fName = document.querySelector("#fname");
-const fNameError = document.querySelector("#fname-error");
-fName.addEventListener('change', (e) => {
-    const isInvalid = !e.target.checkValidity();
-    e.target.setAttribute('aria-invalid', isInvalid);
-    if (isInvalid) {
-        const errorMessage = e.target.validationMessage;
-        fNameError.textContent = errorMessage;
-    }
+// const fName = document.querySelector("#fname");
+// const fNameError = document.querySelector(".fname-error");
+// fName.addEventListener('change', (e) => {
+//     const isInvalid = !e.target.checkValidity();
+//     e.target.setAttribute('aria-invalid', isInvalid);
+//     if (isInvalid) {
+//         const errorMessage = e.target.validationMessage;
+//         fNameError.textContent = errorMessage;
+//     }
+// })
+
+// fName.addEventListener("input", (e) => {
+//     if(fNameError.textContent) {
+//         e.target.removeAttribute('aria-invalid');
+//         fNameError.textContent = '';
+//     }
+// })
+
+const allRequiredInputs = document.querySelectorAll("input[required]");
+const allInputsError = document.querySelectorAll(".error-message")
+allRequiredInputs.forEach(item => {
+    const errorElement = document.querySelector('span');
+    console.log(item.id);
+    item.addEventListener("change", (e) => {
+        const isInvalid = !e.target.checkValidity(); //false
+        console.log(isInvalid)
+
+        e.target.setAttribute('aria-invalid', isInvalid);
+        if (isInvalid) {
+            const errorMessage = e.target.validationMessage;
+            allInputsError.textContent = errorMessage;
+
+            // errorElement.textContent = errorMessage;
+            console.log(allInputsError.textContent)
+        }
+    })
+    item.addEventListener("input", (e) => {
+        if (errorElement.textContent) {
+            e.target.removeAttribute('aria-invalid');
+            allInputsError.textContent = '';
+            // errorElement.textContent = "";
+        }
+    })
 })
-
-fName.addEventListener("input", (e) => {
-    if(fNameError.textContent) {
-        e.target.removeAttribute('aria-invalid');
-        fNameError.textContent = '';
-    }
-})
-
-const allInputs = document.querySelectorAll("input");
-const allInputsError = document.querySelectorAll
-for (i = 0; i < allInputs.length; i++) {
-    allInputs.forEach(element => console.log(element));
-
-}
 
 // const input = document.querySelectorAll("input")
 // input.addEventListener('change', (e) => {
