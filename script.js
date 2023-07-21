@@ -46,17 +46,14 @@ allRequiredInputs.forEach(item => {
         e.target.setAttribute('aria-invalid', isInvalid);
         if (isInvalid) {
             const errorMessage = e.target.validationMessage;
-            allInputsError.textContent = errorMessage;
+            errorElement.textContent = errorMessage;
 
-            // errorElement.textContent = errorMessage;
-            console.log(allInputsError.textContent)
         }
     })
     item.addEventListener("input", (e) => {
         if (errorElement.textContent) {
             e.target.removeAttribute('aria-invalid');
-            allInputsError.textContent = '';
-            // errorElement.textContent = "";
+            errorElement.textContent = "";
         }
     })
 })

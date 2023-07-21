@@ -158,6 +158,11 @@ input:not(:focus):invalid {
     background-color: bisque;
 }
 
+.error-message {
+    font-size: var(--fontsize--small);
+    color: red;
+}
+
 .join > * {
     border: 1px solid orange;
     font-size: var(--fontsize--small);
