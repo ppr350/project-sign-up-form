@@ -35,10 +35,11 @@
 // })
 
 const allRequiredInputs = document.querySelectorAll("input[required]");
-const allInputsError = document.querySelectorAll(".error-message")
+// const allInputsError = document.querySelectorAll(".error-message")
 allRequiredInputs.forEach(item => {
-    const errorElement = document.querySelector('span');
-    console.log(item.id);
+    const errorElement = this.document.querySelector('.error-message');
+    console.log(errorElement.textContent)
+    // console.log(item.id);
     item.addEventListener("change", (e) => {
         const isInvalid = !e.target.checkValidity(); //false
         console.log(isInvalid)
