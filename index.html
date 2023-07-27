@@ -28,7 +28,7 @@
                 <fieldset>
                     <legend>Let's do this!</legend>
 
-                    <div class="inputs-container">
+                    <div class="inputs-container" id="signup">
                         <p class="inputs">
                             <label for="fname">FIRST NAME</label>
                             <input
@@ -41,7 +41,7 @@
                                 aria-invalid="true"
                                 aria-describedby="error-message"
                                 required />
-                            <span class="error-message">err1</span>
+                            <span class="error-message" id="fname-error-message"></span>
                         </p>
                         
                         <p class="inputs">
@@ -61,11 +61,10 @@
                                 type="email"
                                 id="email"
                                 name="email"
-                                pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$"
-                                aria-invalid="true"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                 aria-describedby="error-message"
                                 required />
-                            <span class="error-message">err2</span>
+                            <span class="error-message" id="email-error-message"></span>
                         </p>
 
                         <p class="inputs">
@@ -81,7 +80,7 @@
                         <p class="inputs">
                             <label for="pw">PASSWORD</label>
                             <input 
-                                type="password"
+                                type="text"
                                 id="pw"
                                 name="pw"
                                 autocomplete="off"
@@ -90,22 +89,19 @@
                                 aria-invalid="true"
                                 aria-describedby="error-message"
                                 required />
-                            <span class="error-message">err3</span>
+                            <span class="error-message" id="password-error-message"></span>
                         </p>
 
                         <p class="inputs">
                             <label for="confirm-pw">CONFIRM PASSWORD</label>
                             <input
-                                type="password"
+                                type="text"
                                 id="confirm-pw"
                                 name="confirm-pw"
                                 autocomplete="off"
-                                minlength="8"
-                                maxlength="40"
-                                aria-invalid="true"
-                                aria-describedby="error-message"
+
                                 required />
-                            <span class="error-message">err4</span>
+                            <span class="error-message" id="confirm-pw-error-message"></span>
                         </p>
                     </div>
 
@@ -113,7 +109,7 @@
                 </fieldset>
             </form>
 
-            <div class="join">
+            <div class="join" id="join">
                 <button class="button" type="submit">Create Account</button>
 
                 <p>Already have an account <a href="url">Log in</a></p>
