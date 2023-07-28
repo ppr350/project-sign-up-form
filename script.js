@@ -50,76 +50,105 @@ function checkEmail() {
 }
 checkEmail();
 
-function checkPassword() {
-    const passwordError = document.getElementById('password-error-message');
-    password.addEventListener('change', (e) => {
-        const isInvalid = !e.target.checkValidity(); //false
-        e.target.setAttribute('aria-invalid', isInvalid);
-        if (isInvalid) {
-            const passwordErrorMessage = e.target.validationMessage;
-            passwordError.textContent = passwordErrorMessage;
-        }
-    })
-    password.addEventListener('input', (e) => {
-        if (passwordError.textContent) {
-            e.target.removeAttribute('aria-invalid');
-            passwordError.textContent = "";
-        }
-    })
-}
-checkPassword();
-
-function checkConfirmPassword() {
-    const confirmPasswordError = document.getElementById('confirm-pw-error-message');
-    confirmPassword.addEventListener('change', (e) => {
-        console.log("change detected")
-        // // comparePasswords();
-        // if (confirmPassword.textContent !== password.textContent) {
-        //     const confirmPasswordErrorMessage = "Password did not match"
-        //     console.log("Password did not match")
-        //     confirmPasswordError.textContent = confirmPasswordErrorMessage;
-        // }
-        const isInvalid = !e.target.checkValidity(); //false
-        e.target.setAttribute('aria-invalid', isInvalid);
-        if (isInvalid) {
-            const confirmPasswordErrorMessage = e.target.validationMessage;
-            confirmPasswordError.textContent = confirmPasswordErrorMessage;
-        }
-    })
-    confirmPassword.addEventListener('input', (e) => {
-        if (confirmPassword.textContent === password.textContent) {
-            e.target.removeAttribute('aria-invalid');
-            confirmPasswordError.textContent = "";
-            // comparePasswords();
-        }
-    })
-
-}
-checkConfirmPassword();
-
-const joinButton = document.querySelector('.button');
-joinButton.addEventListener('click', (e) => {
-    console.log('click')
-
-})
-
-function comparePasswords() {
-    const comparePassword = document.getElementById('pw');
-    const compareConfirmPassword = document.getElementById('confirm-pw');
-    const passwordError = document.getElementById('password-error-message');
-    const confirmPasswordError = document.getElementById('confirm-pw-error-message');
-    // console.log(password, confirmPassword)
-    confirmPassword.addEventListener('change', (e) => {
-        if (compareConfirmPassword.value === comparePassword.value) {
-            compareConfirmPassword.setCustomValidity('');
+function validatePasswords() {
+    const checkPassword = document.getElementById('pw');
+    const checkPasswordMessage = document.getElementById('password-error-message');
+    checkPassword.addEventListener('change', (e) => {
+        if (checkPassword.value == "") {
+            checkPasswordMessage.textContent = "Please fill in password";
+            // console.log(e.target.setAttribute('aria-invalid'));
+        } else if (checkPassword.value.length < 8) {
+            checkPasswordMessage.textContent = "Password must be at least 8 characters";
+        } else if (checkPassword.value.length > 30) {
+            checkPasswordMessage.textContent = "Password must be fewer than 30 characters";
         } else {
-            compareConfirmPassword.setCustomValidity('Passwords do not match');
+            checkPasswordMessage.textContent = "";
+            // e.target.removeAttribute('aria-invalid');
         }
-
     })
-
+    const checkConfirmPassword = document.getElementById('confirm-pw');
+    const checkConfirmPasswordMessage = document.getElementById('confirm-pw-error-message');
+    checkConfirmPassword.addEventListener('change', (e) => {
+        if (checkPassword.value !== checkConfirmPassword.value) {
+            checkConfirmPasswordMessage.textContent = "Password are not the same";
+        } else if (checkPassword.value === checkConfirmPassword.value) {
+            checkConfirmPasswordMessage.textContent = "";
+        }
+    })
 }
-comparePasswords()
+validatePasswords();
+
+
+// function checkPassword() {
+//     const passwordError = document.getElementById('password-error-message');
+//     password.addEventListener('change', (e) => {
+//         const isInvalid = !e.target.checkValidity(); //false
+//         e.target.setAttribute('aria-invalid', isInvalid);
+//         if (isInvalid) {
+//             const passwordErrorMessage = e.target.validationMessage;
+//             passwordError.textContent = passwordErrorMessage;
+//         }
+//     })
+//     password.addEventListener('input', (e) => {
+//         if (passwordError.textContent) {
+//             e.target.removeAttribute('aria-invalid');
+//             passwordError.textContent = "";
+//         }
+//     })
+// }
+// checkPassword();
+
+// function checkConfirmPassword() {
+//     const confirmPasswordError = document.getElementById('confirm-pw-error-message');
+//     confirmPassword.addEventListener('change', (e) => {
+//         console.log("change detected")
+//         // // comparePasswords();
+//         // if (confirmPassword.textContent !== password.textContent) {
+//         //     const confirmPasswordErrorMessage = "Password did not match"
+//         //     console.log("Password did not match")
+//         //     confirmPasswordError.textContent = confirmPasswordErrorMessage;
+//         // }
+//         const isInvalid = !e.target.checkValidity(); //false
+//         e.target.setAttribute('aria-invalid', isInvalid);
+//         if (isInvalid) {
+//             const confirmPasswordErrorMessage = e.target.validationMessage;
+//             confirmPasswordError.textContent = confirmPasswordErrorMessage;
+//         }
+//     })
+//     confirmPassword.addEventListener('input', (e) => {
+//         if (confirmPassword.textContent === password.textContent) {
+//             e.target.removeAttribute('aria-invalid');
+//             confirmPasswordError.textContent = "";
+//             // comparePasswords();
+//         }
+//     })
+
+// }
+// checkConfirmPassword();
+
+// const joinButton = document.querySelector('.button');
+// joinButton.addEventListener('click', (e) => {
+//     console.log('click')
+
+// })
+
+// function comparePasswords() {
+//     const comparePassword = document.getElementById('pw');
+//     const compareConfirmPassword = document.getElementById('confirm-pw');
+//     const passwordError = document.getElementById('password-error-message');
+//     const confirmPasswordError = document.getElementById('confirm-pw-error-message');
+//     // console.log(password, confirmPassword)
+//     confirmPassword.addEventListener('change', (e) => {
+//         if (compareConfirmPassword.value === comparePassword.value) {
+//             compareConfirmPassword.setCustomValidity('');
+//         } else {
+//             compareConfirmPassword.setCustomValidity('Passwords do not match');
+//         }
+
+//     })
+
+// }
+// comparePasswords()
 
 
 
