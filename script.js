@@ -9,6 +9,11 @@ const emailErrorMessage = email.nextElementSibling.textContent;
 const passwordErrorMessage = password.nextElementSibling.textContent;
 const confirmPasswordErrorMessage = confirmPassword.nextElementSibling.textContent;
 
+let isFirstNameValid = false;
+let isEmailValid = false;
+let isPasswordValid = false;
+let isConfirmPasswordValid = false;
+
 function checkFirstName() {
     const firstNameError = document.getElementById('fname-error-message');
     firstName.addEventListener('change', (e) => {
@@ -17,12 +22,14 @@ function checkFirstName() {
         if (isInvalid) {
             const firstNameErrorMessage = e.target.validationMessage;
             firstNameError.textContent = firstNameErrorMessage;
+            isFirstNameValid = false;
         }
     })
     firstName.addEventListener('input', (e) => {
         if (firstNameError.textContent) {
             e.target.removeAttribute('aria-invalid');
             firstNameError.textContent = "";
+            isFirstNameValid = true;
         }
     })
 
@@ -37,12 +44,14 @@ function checkEmail() {
         if (isInvalid) {
             const emailErrorMessage = e.target.validationMessage;
             emailError.textContent = emailErrorMessage;
+            isEmailValid = false;
         }
     })
     email.addEventListener('input', (e) => {
         if (emailError.textContent) {
             e.target.removeAttribute('aria-invalid');
             emailError.textContent = "";
+            isEmailValid = true;
         }
     })
 }
@@ -55,15 +64,19 @@ function validatePasswords() {
         if (checkPassword.value == "") {
             checkPasswordMessage.textContent = "Please fill in password";
             e.target.setAttribute('aria-invalid', 'true');
+            isPasswordValid = false;
         } else if (checkPassword.value.length < 8) {
             checkPasswordMessage.textContent = "Password must be at least 8 characters";
             e.target.setAttribute('aria-invalid', 'true');
+            isPasswordValid = false;
         } else if (checkPassword.value.length > 30) {
             checkPasswordMessage.textContent = "Password must be fewer than 30 characters";
             e.target.setAttribute('aria-invalid', 'true');
+            isPasswordValid = false;
         } else {
             checkPasswordMessage.textContent = "";
             e.target.removeAttribute('aria-invalid');
+            isPasswordValid = true;
         }
     })
     const checkConfirmPassword = document.getElementById('confirm-pw');
@@ -72,22 +85,33 @@ function validatePasswords() {
         if (checkPassword.value !== checkConfirmPassword.value) {
             checkConfirmPasswordMessage.textContent = "Password are not the same";
             e.target.setAttribute('aria-invalid', 'true');
+            isConfirmPasswordValid = false;
         } else if (checkPassword.value === checkConfirmPassword.value) {
             checkConfirmPasswordMessage.textContent = "";
             e.target.removeAttribute('aria-invalid');
+            isConfirmPasswordValid = true;
         }
     })
 }
 validatePasswords();
 
+
 document.querySelector("button").addEventListener("click", buttonForValidation);
 
 function buttonForValidation() {
     console.log("The button is pressed")
-    const fnameStatus = document.getElementById('fname').aria;
-    if (fnameStatus == true) {
-        console.log('fname verified')
+
+    const conditions = [isFirstNameValid = true, isEmailValid = true, isPasswordValid = true, isConfirmPasswordValid = true];
+
+    const allConditionsMet = conditions.every(condition => condition);
+    console.log(allConditionsMet);
+
+    if (allConditionsMet) {
+        console.log("Congratulations!!")
+    } else {
+        console.log("Not quite there yet!")
     }
+
 }
 
 
