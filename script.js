@@ -1,18 +1,11 @@
-const allRequiredInputs = document.querySelectorAll('#input[required]');
 const firstName = document.querySelector('#fname');
 const email = document.querySelector('#email');
 const password = document.querySelector('#pw');
 const confirmPassword = document.querySelector('#confirm-pw');
 
-const firstNameErrorMessage = firstName.nextElementSibling.textContent;
-const emailErrorMessage = email.nextElementSibling.textContent;
-const passwordErrorMessage = password.nextElementSibling.textContent;
-const confirmPasswordErrorMessage = confirmPassword.nextElementSibling.textContent;
 
-let isFirstNameValid = false;
-let isEmailValid = false;
-let isPasswordValid = false;
-let isConfirmPasswordValid = false;
+let conditions = [false, false, false, false];
+
 
 function checkFirstName() {
     const firstNameError = document.getElementById('fname-error-message');
@@ -22,19 +15,22 @@ function checkFirstName() {
         if (isInvalid) {
             const firstNameErrorMessage = e.target.validationMessage;
             firstNameError.textContent = firstNameErrorMessage;
-            isFirstNameValid = false;
+            conditions[0] = false;
+            console.log(conditions);
         }
     })
     firstName.addEventListener('input', (e) => {
         if (firstNameError.textContent) {
             e.target.removeAttribute('aria-invalid');
             firstNameError.textContent = "";
-            isFirstNameValid = true;
+            conditions[0] = true;
+            console.log(conditions);
         }
     })
 
 }
 checkFirstName();
+
 
 function checkEmail() {
     const emailError = document.getElementById('email-error-message');
@@ -44,18 +40,21 @@ function checkEmail() {
         if (isInvalid) {
             const emailErrorMessage = e.target.validationMessage;
             emailError.textContent = emailErrorMessage;
-            isEmailValid = false;
+            conditions[1] = false;
+            console.log(conditions);
         }
     })
     email.addEventListener('input', (e) => {
         if (emailError.textContent) {
             e.target.removeAttribute('aria-invalid');
             emailError.textContent = "";
-            isEmailValid = true;
+            conditions[1] = true;
+            console.log(conditions);
         }
     })
 }
 checkEmail();
+
 
 function validatePasswords() {
     const checkPassword = document.getElementById('pw');
@@ -64,19 +63,26 @@ function validatePasswords() {
         if (checkPassword.value == "") {
             checkPasswordMessage.textContent = "Please fill in password";
             e.target.setAttribute('aria-invalid', 'true');
-            isPasswordValid = false;
+            conditions[2] = false;
+            conditions[3] = false;
+            console.log(conditions);
         } else if (checkPassword.value.length < 8) {
             checkPasswordMessage.textContent = "Password must be at least 8 characters";
             e.target.setAttribute('aria-invalid', 'true');
-            isPasswordValid = false;
+            conditions[2] = false;
+            conditions[3] = false;
+            console.log(conditions);
         } else if (checkPassword.value.length > 30) {
             checkPasswordMessage.textContent = "Password must be fewer than 30 characters";
             e.target.setAttribute('aria-invalid', 'true');
-            isPasswordValid = false;
+            conditions[2] = false;
+            conditions[3] = false;
+            console.log(conditions);
         } else {
             checkPasswordMessage.textContent = "";
             e.target.removeAttribute('aria-invalid');
-            isPasswordValid = true;
+            conditions[2] = true;
+            console.log(conditions);
         }
     })
     const checkConfirmPassword = document.getElementById('confirm-pw');
@@ -85,11 +91,13 @@ function validatePasswords() {
         if (checkPassword.value !== checkConfirmPassword.value) {
             checkConfirmPasswordMessage.textContent = "Password are not the same";
             e.target.setAttribute('aria-invalid', 'true');
-            isConfirmPasswordValid = false;
+            conditions[3] = false;
+            console.log(conditions);
         } else if (checkPassword.value === checkConfirmPassword.value) {
             checkConfirmPasswordMessage.textContent = "";
             e.target.removeAttribute('aria-invalid');
-            isConfirmPasswordValid = true;
+            conditions[3] = true;
+            console.log(conditions);
         }
     })
 }
@@ -98,16 +106,13 @@ validatePasswords();
 
 document.querySelector("button").addEventListener("click", buttonForValidation);
 
+
 function buttonForValidation() {
-    console.log("The button is pressed")
-
-    const conditions = [isFirstNameValid = true, isEmailValid = true, isPasswordValid = true, isConfirmPasswordValid = true];
-
     const allConditionsMet = conditions.every(condition => condition);
     console.log(allConditionsMet);
-
     if (allConditionsMet) {
         console.log("Congratulations!!")
+        alert("Successful!")
     } else {
         console.log("Not quite there yet!")
     }
