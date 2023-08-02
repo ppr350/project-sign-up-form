@@ -30,7 +30,6 @@ body {
     background: rgb(246, 246, 246);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    border: 1px solid red;
 }
 
 #container > #section-form {
@@ -42,15 +41,11 @@ body {
     object-fit: cover;
     position: relative;
     text-align: center;
-    border: 1px solid teal;
 }
 
 #background-image-ft-carly {
     max-width: 100%;
     display: block;
-    /* z-index: -1; */
-    border: 1px solid blue;
-    /* aspect-ratio: auto 1 / 1; */
 }
 
 #project-name-blackbar {
@@ -58,18 +53,15 @@ body {
     top: 30%;
     left: 50%;
     max-width: 100%;
-    /* background: black;
-    opacity: 0.6;*/
-    border: 1px solid hotpink;
 }
 
 #project-name {
     color: white;
     font-size: var(--fontsize--xlarge);
     position: absolute;
+    padding: 0.5rem;
     transform: translate(-50%, -50%);
     background: rgba(166, 166, 166, 0.8);
-    border: 1px solid pink;
 }
 
 #image-info {
@@ -85,8 +77,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid rgb(244, 24, 24);
-
 }
 
 #section-form > * {
@@ -95,26 +85,15 @@ body {
 
 .message-main {
     font-size: var(--fontsize--large);
-    /* text-wrap: balance; */
-    border: 1px solid green;
 }
 
 .message-secondary {
     font-size: var(--fontsize--large);
-    border: 1px solid purple;
-}
-
-fieldset {
-    /* position: relative;
-    background: white;
-    border: 1px solid lightblue;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
 }
 
 form {
     position: relative;
     background: white;
-    border: 1px solid lightblue;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -123,8 +102,6 @@ legend {
     top: 0.1em;
     padding-bottom: min(3vh, 5rem);
     font-size: var(--fontsize--medium);
-    border: 1px solid blue;
-
 }
 
 .inputs-container {
@@ -164,7 +141,6 @@ input:not(:focus):invalid {
 }
 
 .join > * {
-    border: 1px solid orange;
     font-size: var(--fontsize--small);
 }
 
